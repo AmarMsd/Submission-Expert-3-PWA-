@@ -127,7 +127,9 @@ img {
 }
 
 
-
+.hero-image{
+  width: 100%;
+}
 .hero .hero-image img{
   width: 100%;
   margin: auto;
@@ -381,6 +383,11 @@ content {
   align-content: center;
 }
 
+.detail-page{
+  display: flex;
+  flex-direction: row;
+}
+
 .detail-page img,.detail-page source {
   height: 50%;
   width: 100%;
@@ -391,9 +398,12 @@ content {
   flex-direction: column;
 }
 
+.detail-info li{
+  list-style: none;
+
+}
 .detail-page button {
   border: none;
-
   cursor: pointer;
   margin-left: auto;
   width: auto;
@@ -429,20 +439,39 @@ footer {
   .logo{
     display: none;
   }
+
+  li {
+    list-style: none;
+  }
+
+  .detail-info{
+    padding: 5px;
+
+    width: 100%;
+  }
+  
+  .detail-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1em;
+    margin-top: 1em;
+    color: black;
+  }
+  
+  .detail-desc{
+    width: 100%;
+  }
+  
+  .kategori{
+    display: flex;
+  }
+
+  .detail-kategori{
+    flex-direction: row;
+  }
 }
 
-
-li {
-  list-style: none;
-}
-
-.detail-page {
-  display: flex;
-  flex-direction: row;
-  font-size: 1em;
-  margin-top: 1em;
-  color: black;
-}
 
 
 
@@ -484,6 +513,7 @@ li {
 .title-card {
   font-weight: bold;
 }
+
 
 @media screen and (min-width: 650px) {
 

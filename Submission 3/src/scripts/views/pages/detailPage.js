@@ -9,14 +9,13 @@ import getApi from '../../data/getApi';
 const detailPage = {
   async init() {
     this.url = UrlParser.parseActiveUrlWithoutCombiner();
-    return await getApi(`detail/${this.url.id}`).then((e) => this.createElement(e) );
+    return await getApi(`detail/${this.url.id}`).then((e) => this.createElement(e));
   },
-  async createElement(e){
-
+  async createElement(e) {
     return await `
     <div class="detail-page"> 
     <picture class="detail-wrap">
-    <source class="detail-image lazyload" media="(max-width: 600px)" srcset="./images/loading.gif" data-src="https://restaurant-api.dicoding.dev/images/small/${e.restaurant.pictureId}">
+    <source class="detail-image lazyload" media="(max-width: 600px)" srcset="./images/loading.gif" data-srcset="https://restaurant-api.dicoding.dev/images/small/${e.restaurant.pictureId}">
         <img class= "detail-image lazyload" data-src="https://restaurant-api.dicoding.dev/images/large/${e.restaurant.pictureId}" src='./images/loading.gif' 
              alt="Gambar Data API">
 
@@ -27,8 +26,8 @@ const detailPage = {
         <li class="detail-address">${e.restaurant.city}</li>
         <li class="detail-rating">Rating ${e.restaurant.rating}</li>
         <li class="detail-desc">${e.restaurant.description}</li>
-        <button title="Love it" class="button-favorite ${await FavoriteRestoIdb.getResto(e.restaurant.id) ? "afterAdd" : "" }"> 
-        <p>${await FavoriteRestoIdb.getResto(e.restaurant.id) ? "Unfavorite" : "Favorite" }</p>
+        <button title="Love it" class="button-favorite ${await FavoriteRestoIdb.getResto(e.restaurant.id) ? 'afterAdd' : ''}"> 
+        <p>${await FavoriteRestoIdb.getResto(e.restaurant.id) ? 'Unfavorite' : 'Favorite'}</p>
         </button>
         <li class="kategori-header">Kategori</li>
          <span class="kategori">
@@ -115,13 +114,13 @@ const detailPage = {
     favorite.addEventListener('click', async () => {
       // eslint-disable-next-line eqeqeq
       if (await FavoriteRestoIdb.getResto(id) != undefined) {
-        await this.prosesDelete(favorite,id);
+        await this.prosesDelete(favorite, id);
       } else {
-        await this.prosesFavorite(favorite,id);
+        await this.prosesFavorite(favorite, id);
       }
     });
   },
-  async prosesFavorite(favorite,id) {
+  async prosesFavorite(favorite, id) {
     const data = await getApi(`detail/${id}`).then((e) => e.restaurant);
     FavoriteRestoIdb.putResto(data);
     // eslint-disable-next-line no-param-reassign
@@ -129,7 +128,7 @@ const detailPage = {
     favorite.innerText = 'Unfavorite';
   },
 
-  async prosesDelete(favorite,id) {
+  async prosesDelete(favorite, id) {
     FavoriteRestoIdb.deleteResto(id);
     favorite.classList.toggle('afterAdd');
     favorite.innerText = 'Favorite';

@@ -6,7 +6,6 @@ import '../styles/main.css';
 import swRegister from './utils/sw-register';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
-import filter from 'lodash.filter';
 
 // eslint-disable-next-line linebreak-style
 
@@ -25,8 +24,3 @@ window.addEventListener('load', () => {
   app.renderPage();
   swRegister();
 });
-
-const filterContacts = (filter) => {
-  filter(contacts, contactType.value === 'all' ? {} : { type: contactType.value })
-    .forEach(renderContact);
-};

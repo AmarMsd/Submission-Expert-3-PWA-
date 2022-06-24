@@ -11,6 +11,8 @@ var serviceWorkerOption = {
     "/icons/icon-384x384.png",
     "/icons/icon-512x512.png",
     "/images/loading.gif",
+    "/images/heros/hero-image_4-large.jpg",
+    "/images/heros/hero-image_4-small.jpg",
     "/images/heros/hero-image_4.jpg",
     "/images/heros/Thumbs.db",
     "/index.html"

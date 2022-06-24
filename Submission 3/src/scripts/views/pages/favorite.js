@@ -19,10 +19,10 @@ const favorite = {
   async showAllItem() {
     const favorite = document.querySelector('#list-items');
     await FavoriteRestoIdb.getAllResto().then(async (e) => {
-      console.log(e);
-      if(e.length === 0){
-        favorite.innerHTML = `<div class="message-empty">Kosong</div>`
-      }else{
+      // eslint-disable-next-line no-console
+      if (e.length === 0) {
+        favorite.innerHTML = '<div class="message-empty">Kosong</div>';
+      } else {
         e.forEach((data) => {
           favorite.innerHTML += `
             <div class="list_item">

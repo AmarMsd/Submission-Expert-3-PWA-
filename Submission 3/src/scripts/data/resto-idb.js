@@ -23,10 +23,10 @@ const FavoriteRestoIdb = {
     return (await openIdb).getAll(OBJECT_STORE_NAME);
   },
 
+  // eslint-disable-next-line consistent-return
   async putResto(resto) {
-    console.log(resto)
-    if(resto.id != null){
-      return (await openIdb).put(OBJECT_STORE_NAME, resto);      
+    if (resto.id != null) {
+      return (await openIdb).put(OBJECT_STORE_NAME, resto);
     }
   },
 
